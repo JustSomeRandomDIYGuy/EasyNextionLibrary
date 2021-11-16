@@ -15,7 +15,7 @@
 //--------------------------------------------------------
 #ifndef EasyNextionLibrary_h
 #define EasyNextionLibrary_h
-
+#include <SoftwareSerial.h>
 
 
 
@@ -39,7 +39,7 @@ class EasyNex {
    * initialization data: unsigned long baud = 9600 (default) if nothing written in the begin()
    * myObject.begin(115200); for baud rate 115200
    * 
-   * -- EasyNex(HardwareSerial& serial): The constructor of the class that has the parameter of the Serial we use
+   * -- EasyNex(SoftwareSerial& serial): The constructor of the class that has the parameter of the Serial we use
    * EasyNex.myObject(Serial);  or Serial1, Serial2....
    *
    * -- writeNum(String, unsigned int): for writing in components' numeric attribute
@@ -78,7 +78,7 @@ class EasyNex {
    
 
 	public:
-    EasyNex(HardwareSerial& serial);
+    EasyNex(SoftwareSerial& serial);
 		void begin(unsigned long baud = 9600);
     void writeNum(String, uint32_t);
     void writeStr(String, String txt = "cmd");
@@ -115,7 +115,7 @@ class EasyNex {
 	 // library-accessible "private" interface
   //-----------------------------------------
 	private:
-    HardwareSerial* _serial;
+    SoftwareSerial* _serial;
 		void readCommand(void);
     void callTriggerFunction(void);
     
